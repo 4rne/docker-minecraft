@@ -9,6 +9,9 @@ Docker image for [Minecraft](https://minecraft.net/) server.
 
 [![](https://images.microbadger.com/badges/image/phlak/minecraft.svg)](http://microbadger.com/#/images/phlak/minecraft "Get your own image badge on microbadger.com")
 
+#### Bukkit build revisions
+[Bukkit versions](https://www.spigotmc.org/wiki/buildtools/#latest) to put inside the `Dockerfile`
+
 #### Like this project?
 
 [![Join the community on Spectrum](https://img.shields.io/badge/Join_the_community-PHLAKNET-7a15fe.svg)](https://spectrum.chat/phlaknet)

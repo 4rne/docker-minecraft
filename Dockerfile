@@ -25,9 +25,11 @@ COPY files/ops /usr/local/bin/ops
 RUN chmod +x /usr/local/bin/ops
 
 # Install dependencies, fetch Minecraft server jar file and chown files
-RUN apk add --update ca-certificates nss openjdk8-jre-base tzdata wget \
-    && wget -O /opt/minecraft/minecraft_server.jar ${JAR_URL} \
-    && apk del --purge wget && rm -rf /var/cache/apk/* \
+RUN apk add --update ca-certificates nss openjdk8-jre-base tzdata wget git \
+    && wget "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar" \
+    && java -jar BuildTools.jar -rev "${MC_VERSION}" \
+    && mv CraftBukkit/target/craftbukkit*.jar "/opt/minecraft/craftbukkit.jar" \
+    && apk del --purge git && rm -rf /var/cache/apk/* \
     && chown -R minecraft:minecraft /etc/minecraft /opt/minecraft
 
 # Define volumes
@@ -43,4 +45,4 @@ USER minecraft
 WORKDIR /etc/minecraft
 
 # Default run command
-CMD ["java", "-jar", "/opt/minecraft/minecraft_server.jar", "nogui"]
+CMD ["java", "-jar", "/opt/minecraft/craftbukkit.jar", "nogui"]

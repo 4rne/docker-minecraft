@@ -3,10 +3,6 @@ MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
 # Minecraft version
 ARG MC_VERSION=1.14.2
-ARG MC_JAR_SHA1=808be3869e2ca6b62378f9f4b33c946621620019
-
-# Set jar file URL
-ARG JAR_URL=https://launcher.mojang.com/v1/objects/${MC_JAR_SHA1}/server.jar
 
 # Set default JVM options
 ENV _JAVA_OPTIONS '-Xms256M -Xmx1024M'

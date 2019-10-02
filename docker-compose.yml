@@ -10,14 +10,7 @@ services:
       - "25565:25565"
     environment:
       - _JAVA_OPTIONS=-Xms256M -Xmx6000M
-    networks:
-      - website
     restart: unless-stopped
 
 volumes:
   minecraft-data:
-
-networks:
-  website:
-    external:
-      name: docker-website
